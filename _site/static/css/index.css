@@ -1,0 +1,418 @@
+/* Box-sizing -*/
+* {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+ *behavior: url('/test/grid/script/boxsizing.htc');
+}
+
+/* Display block per gli elementi HTML5 su IE */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/* Immagini responsive */
+img { 
+  border:0; 
+  vertical-align:middle; 
+  -ms-interpolation-mode:bicubic;
+}
+ 
+img.scala { 
+  max-width:100%; 
+  height:auto; 
+}
+
+/* Stili di base e tipografia */
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 16px;
+  line-height: 20px;
+  color:#333; 
+  background-color: #bcebf0;
+  -webkit-text-size-adjust:100%;
+}
+
+a {
+  color: #558bc4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #558bc4;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family:"Georgia", "Times New Roman", serif; 
+} 
+
+h1 { 
+  font-size:42px;  
+  line-height:46px; 
+  margin-bottom:20px; 
+}
+
+h2 { 
+  font-size:28px; 
+  line-height:32px; 
+  margin-bottom:12px; 
+}
+
+h3 { 
+  font-size:21px; 
+  line-height:25px; 
+  margin-bottom:8px; 
+}
+
+/* Griglia */
+
+.riga {
+  width: 100%; 
+  max-width: 1200px; 
+  min-width: 400px; 
+  margin: 0 auto;
+  background: #fff; 
+}
+
+[class*='colonna-'] {
+  float: left; 
+  min-height: 1px; 
+  padding: 0 15px; 
+}
+
+.colonna-1 {
+  width: 100%;
+  background-image:url('../static/bg_top_img.jpg');
+}
+
+.colonna-2 {
+  width: 100%;
+  background: #fff; 
+}
+
+.colonna-3 {
+  width: 100%;
+  background: #fff; 
+}
+
+.colonna-4 {
+  width: 100%;
+  background: #000 
+}
+.colonna-1-3 {
+  width: 33.33%;
+}
+
+.colonna-1-2 {
+  width: 50%;
+}
+
+[class*="colonna-"] + [class*="colonna-"]:last-child {float: right;}
+
+/* Micro-clearfix */
+.riga:before,
+.riga:after {
+  content: " "; 
+  display: table;
+}
+
+.riga:after {
+  clear: both;
+}
+
+.riga {
+  *zoom: 1;
+}
+
+/* Stili  per le varie sezioni */
+header {
+  height: 70px;
+  /*border-bottom: 1px solid #333;*/
+  position: relative;
+}
+
+header #logo {
+  float: left;
+}
+
+#logo a {display: block;}
+
+footer {
+  /*border-top: 1px solid #333;
+  border-bottom: 1px solid #333;*/
+}
+
+nav {
+  float: right;
+  padding: 20px 20px 0 0; 
+}
+
+nav ul, nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  float: left;
+  margin-right: 5px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 5px;
+}
+
+a.attiva-nav {
+  display: none;
+}
+
+/*pc*/
+@media only screen and (min-width:768px) and(max-width: 1200px) {
+  .riga { 
+    width: auto;
+    min-width: 0; 
+    margin-left: 0; 
+    margin-right: 0;
+  }
+ 
+  [class*="colonna-"] { 
+    width: auto !important; 
+   float: none;  
+  }
+
+  [class*="colonna"] + [class*="colonna"]:last-child {float: none;}
+ 
+  [class*="colonna-"]:before, [class*="colonna-"]:after {
+    content:""; 
+    display:table;
+  }
+
+  [class*="colonna-"]:after {clear: both;}
+
+  nav {
+    float: right;
+    padding: 20px 20px 0 0; 
+  }
+
+  nav ul, nav li {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
+    float: left;
+    margin-right: 5px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 5px;
+  }
+
+  a.attiva-nav {
+    display: none;
+  }
+}
+
+/*tablet portrait*/
+@media only screen and (min-width:480px) and (max-width: 768px) {
+  .riga { 
+    width: auto;
+    min-width: 0; 
+    margin-left: 0; 
+    margin-right: 0;
+  }
+ 
+  [class*="colonna-"] { 
+    width: auto !important; 
+    float: none;  
+  }
+
+  [class*="colonna"] + [class*="colonna"]:last-child {float: none;}
+ 
+  [class*="colonna-"]:before, [class*="colonna-"]:after {
+    content:""; 
+    display:table;
+  }
+
+  [class*="colonna-"]:after {clear: both;}
+
+  a.attiva-nav {
+    display: block;
+    float: right;
+    color: #2cb7ea;
+    background: #4e4e4e;
+    text-decoration: none;
+    margin: 20px 0 0 0;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    height: 22px;
+  }
+
+  nav {
+    clear: both;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 10000;
+    background: #fff;
+    padding: 0;
+    display: none;
+  }  
+
+  nav ul {
+  margin: 0;
+  padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
+    float: none;
+  }
+
+  nav ul li a { 
+    padding: 5px;
+    display: block;
+    border-bottom: 1px solid #333; 
+  }
+}
+
+/*smartphone lendscape*/
+@media only screen and (min-width:320px) and (max-width:480px) {
+  .riga { 
+    width: auto;
+    min-width: 0; 
+    margin-left: 0; 
+    margin-right: 0;
+  }
+ 
+  [class*="colonna-"] { 
+    width: auto !important; 
+    float: none;  
+  }
+
+  [class*="colonna"] + [class*="colonna"]:last-child {float: none;}
+ 
+  [class*="colonna-"]:before, [class*="colonna-"]:after {
+    content:""; 
+    display:table;
+  }
+
+  [class*="colonna-"]:after {clear: both;}
+
+  a.attiva-nav {
+    display: block;
+    float: right;
+    color: #2cb7ea;
+    background: #4e4e4e;
+    text-decoration: none;
+    margin: 20px 0 0 0;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    height: 22px;
+  }
+
+  nav {
+    clear: both;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 10000;
+    background: #fff;
+    padding: 0;
+    display: none;
+  }  
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
+    float: none;
+  }
+
+  nav ul li a { 
+    padding: 5px;
+    display: block;
+    border-bottom: 1px solid #333; 
+  }
+}
+
+/*smartphone portrait*/
+@media only screen and (max-width:320px) {
+  .riga { 
+    width: auto;
+    min-width: 0; 
+    margin-left: 0; 
+    margin-right: 0;
+  }
+ 
+  [class*="colonna-"] { 
+    width: auto !important; 
+    float: none;  
+  }
+
+  [class*="colonna"] + [class*="colonna"]:last-child {float: none;}
+ 
+  [class*="colonna-"]:before, [class*="colonna-"]:after {
+    content:""; 
+    display:table;
+  }
+
+  [class*="colonna-"]:after {clear: both;}
+
+  a.attiva-nav {
+    display: block;
+    float: right;
+    color: #2cb7ea;
+    background: #4e4e4e;
+    text-decoration: none;
+    margin: 20px 0 0 0;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    height: 22px;
+  }
+
+  nav {
+    clear: both;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 10000;
+    background: #fff;
+    padding: 0;
+    display: none;
+  }  
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li {
+    list-style: none;
+    float: none;
+  }
+
+  nav ul li a { 
+    padding: 5px;
+    display: block;
+    border-bottom: 1px solid #333; 
+  }
+}
